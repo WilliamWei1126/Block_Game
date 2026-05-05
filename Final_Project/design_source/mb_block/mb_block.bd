@@ -1,11 +1,11 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x59D48D6F48BB73B6",
+      "boundary_crc": "0x59D48D6F05ADD50E",
       "device": "xc7s50csga324-1",
       "name": "mb_block",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
-      "synth_flow_mode": "Hierarchical",
+      "synth_flow_mode": "None",
       "tool_version": "2022.2",
       "validated": "true"
     },
@@ -1428,7 +1428,7 @@
         }
       },
       "hdmi_text_controller_0": {
-        "vlnv": "xilinx.com:user:hdmi_text_controller_v2:1.0",
+        "vlnv": "xilinx.com:user:hdmi_text_controller_v2_1:1.0",
         "xci_name": "mb_block_hdmi_text_controller_0_0",
         "xci_path": "ip\\mb_block_hdmi_text_controller_0_0\\mb_block_hdmi_text_controller_0_0.xci",
         "inst_hier_path": "hdmi_text_controller_0",
@@ -1484,6 +1484,12 @@
           "microblaze_0_axi_periph/M02_AXI"
         ]
       },
+      "microblaze_0_axi_periph_M03_AXI": {
+        "interface_ports": [
+          "microblaze_0_axi_periph/M03_AXI",
+          "hdmi_text_controller_0/axi"
+        ]
+      },
       "microblaze_0_axi_periph_M04_AXI": {
         "interface_ports": [
           "gpio_usb_rst/S_AXI",
@@ -1500,12 +1506,6 @@
         "interface_ports": [
           "microblaze_0_axi_periph/M06_AXI",
           "timer_usb_axi/S_AXI"
-        ]
-      },
-      "microblaze_0_axi_periph_M07_AXI": {
-        "interface_ports": [
-          "microblaze_0_axi_periph/M07_AXI",
-          "hdmi_text_controller_0/axi"
         ]
       },
       "microblaze_0_debug": {

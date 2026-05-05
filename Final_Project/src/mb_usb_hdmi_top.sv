@@ -45,24 +45,6 @@ module mb_usb_hdmi_top(
     
     assign reset_ah = reset_rtl_0;
     
-    
-    //Keycode HEX drivers
-    hex_driver HexA (
-        .clk(Clk),
-        .reset(reset_ah),
-        .in({keycode0_gpio[31:28], keycode0_gpio[27:24], keycode0_gpio[23:20], keycode0_gpio[19:16]}),
-        .hex_seg(hex_segA),
-        .hex_grid(hex_gridA)
-    );
-    
-    hex_driver HexB (
-        .clk(Clk),
-        .reset(reset_ah),
-        .in({keycode0_gpio[15:12], keycode0_gpio[11:8], keycode0_gpio[7:4], keycode0_gpio[3:0]}),
-        .hex_seg(hex_segB),
-        .hex_grid(hex_gridB)
-    );
-    
     mb_block mb_block_i (
         .clk_100MHz(Clk),
         .gpio_usb_int_tri_i(gpio_usb_int_tri_i),
