@@ -15,6 +15,17 @@
 
 #define STEP 0x00010000
 
+// =============================================================================
+// World cell encoding (matches raycaster_engine.sv):
+//   bits [3:0]  : color  (palette index 0-15, see hdmi_text_controller_v1_0.sv)
+//   bits [6:4]  : height (0 = air, 1-7 = column height in world units)
+//   bits [31:7] : unused
+//
+// IMPORTANT: a cell with height == 0 is air regardless of the color bits.
+// To place a visible block, both color AND height must be non-zero.
+// =============================================================================
+#define BLOCK(color, height)  (((height) & 0x7) << 4 | ((color) & 0xF))
+
 static const int dir_step_x[8] = {
      1,  1,  0, -1, -1, -1,  0,  1
 };
@@ -170,67 +181,78 @@ void init_player(void)
 {
     hdmi_ctrl->player_x = 0x00080000;   // 8.0
     hdmi_ctrl->player_y = 0x00080000;   // 8.0
-    hdmi_ctrl->player_z = 0x00000000;
+    // player_z is hardwired to z=1.0 in the raycaster engine.
+    // The address (0x2008) still exists for compatibility but writes are ignored.
 
     facing = 4;   // west
     update_camera();
 }
 
-//make the bottom of world color 1 block
+// =============================================================================
+// init_world: Variable-height test scene
+//
+// On spawn, player is at (8.0, 8.0) facing WEST (-X). With west-facing camera,
+// "forward" is -X, and "right" is +Y. The staircase at x=5 puts heights 1..7
+// directly across the player's field of view at depth ~3 units.
+// =============================================================================
 void init_world(void)
 {
+    // ---- Clear everything to air ----
     for (int y = 0; y < Width; y++) {
         for (int x = 0; x < Length; x++) {
-            int index = x + Length * y;
+            hdmi_ctrl->VRAM[x + Length * y] = 0x00000000;
+        }
+    }
 
-            // clear to air
-            hdmi_ctrl->VRAM[index] = 0x00000000;
-
-            // inner border walls
+    // ---- Inner border ring (height 5, stone color) ----
+    // Tall enough to enclose the area but shorter than the auto-generated
+    // boundary walls (height 7) at the absolute edge of the 32x32 map.
+    for (int y = 0; y < Width; y++) {
+        for (int x = 0; x < Length; x++) {
             if (x == 2 || x == Length - 2 || y == 2 || y == Width - 2) {
-                hdmi_ctrl->VRAM[index] = 0x00000001;
+                hdmi_ctrl->VRAM[x + Length * y] = BLOCK(1, 5); // stone, h=5
             }
         }
     }
 
-    // red wall in front of spawn
-    hdmi_ctrl->VRAM[5 + Length * 7] = 0x00000006;
-    hdmi_ctrl->VRAM[5 + Length * 8] = 0x00000006;
-    hdmi_ctrl->VRAM[5 + Length * 9] = 0x00000006;
+    // ---- Height staircase: 1..7 at x=5, across y=5..11 ----
+    // Bricks (color 6) so all steps share one color and height differences
+    // are obvious. Visible directly in front of player on spawn.
+    hdmi_ctrl->VRAM[5 + Length * 5]  = BLOCK(6, 1); // h=1: top at eye level
+    hdmi_ctrl->VRAM[5 + Length * 6]  = BLOCK(6, 2);
+    hdmi_ctrl->VRAM[5 + Length * 7]  = BLOCK(6, 3);
+    hdmi_ctrl->VRAM[5 + Length * 8]  = BLOCK(6, 4); // dead ahead
+    hdmi_ctrl->VRAM[5 + Length * 9]  = BLOCK(6, 5);
+    hdmi_ctrl->VRAM[5 + Length * 10] = BLOCK(6, 6);
+    hdmi_ctrl->VRAM[5 + Length * 11] = BLOCK(6, 7); // h=7: max
 
-    // blue column
-    hdmi_ctrl->VRAM[12 + Length * 6] = 0x00000003;
-    hdmi_ctrl->VRAM[12 + Length * 7] = 0x00000003;
-    hdmi_ctrl->VRAM[12 + Length * 8] = 0x00000003;
-
-    // yellow block cluster
-    hdmi_ctrl->VRAM[16 + Length * 12] = 0x00000005;
-    hdmi_ctrl->VRAM[17 + Length * 12] = 0x00000005;
-    hdmi_ctrl->VRAM[16 + Length * 13] = 0x00000005;
-    hdmi_ctrl->VRAM[17 + Length * 13] = 0x00000005;
-
-    // cyan corridor wall
-    for (int y = 18; y <= 24; y++) {
-        hdmi_ctrl->VRAM[10 + Length * y] = 0x00000007;
+    // ---- Short wall (h=1, eye level) you can look across ----
+    // Place at x=10..15, y=12 - a low fence behind/right of the staircase
+    for (int x = 10; x <= 15; x++) {
+        hdmi_ctrl->VRAM[x + Length * 12] = BLOCK(2, 1); // grass, h=1
     }
 
-    // magenta/purple block group
-    hdmi_ctrl->VRAM[22 + Length * 8]  = 0x00000008;
-    hdmi_ctrl->VRAM[23 + Length * 8]  = 0x00000008;
-    hdmi_ctrl->VRAM[22 + Length * 9]  = 0x00000008;
-    hdmi_ctrl->VRAM[23 + Length * 9]  = 0x00000008;
+    // ---- Tall scattered pillars (different colors, different heights) ----
+    hdmi_ctrl->VRAM[20 + Length * 8]  = BLOCK(4, 7); // planks, max
+    hdmi_ctrl->VRAM[24 + Length * 12] = BLOCK(0xA, 6); // gold, h=6
+    hdmi_ctrl->VRAM[18 + Length * 20] = BLOCK(0xB, 5); // lapis, h=5
+    hdmi_ctrl->VRAM[10 + Length * 25] = BLOCK(9, 4);   // sand, h=4
 
-    // orange line
-    for (int x = 20; x <= 26; x++) {
-        hdmi_ctrl->VRAM[x + Length * 20] = 0x00000009;
-    }
+    // ---- Mid-height cluster (heights 2-3 mixed) ----
+    hdmi_ctrl->VRAM[22 + Length * 22] = BLOCK(3, 2); // dirt, h=2
+    hdmi_ctrl->VRAM[23 + Length * 22] = BLOCK(3, 3); // dirt, h=3
+    hdmi_ctrl->VRAM[22 + Length * 23] = BLOCK(3, 3);
+    hdmi_ctrl->VRAM[23 + Length * 23] = BLOCK(3, 2);
 
-    // a small "tree-like" plus sign in another color
-    hdmi_ctrl->VRAM[26 + Length * 26] = 0x0000000A;
-    hdmi_ctrl->VRAM[25 + Length * 26] = 0x0000000A;
-    hdmi_ctrl->VRAM[27 + Length * 26] = 0x0000000A;
-    hdmi_ctrl->VRAM[26 + Length * 25] = 0x0000000A;
-    hdmi_ctrl->VRAM[26 + Length * 27] = 0x0000000A;
+    // ---- Color/height variety row at y=15 ----
+    hdmi_ctrl->VRAM[10 + Length * 15] = BLOCK(6, 2);   // bricks, h=2
+    hdmi_ctrl->VRAM[12 + Length * 15] = BLOCK(0xA, 3); // gold,   h=3
+    hdmi_ctrl->VRAM[14 + Length * 15] = BLOCK(8, 4);   // water,  h=4
+    hdmi_ctrl->VRAM[16 + Length * 15] = BLOCK(0xE, 5); // quartz, h=5
+    hdmi_ctrl->VRAM[18 + Length * 15] = BLOCK(4, 6);   // planks, h=6
+
+    // ---- Lone tall obsidian pillar (max height, dark color) ----
+    hdmi_ctrl->VRAM[27 + Length * 27] = BLOCK(0xC, 7);
 }
 
 //check if key is pressed
@@ -264,6 +286,7 @@ int main() {
 
 	//initialize game
 	init_world();
+	xil_printf("test cell value: %x\n", hdmi_ctrl->VRAM[5 + Length * 8]);
 	init_player();
 
 	while (1) {
