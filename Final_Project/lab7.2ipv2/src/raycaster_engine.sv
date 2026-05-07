@@ -110,9 +110,9 @@ module raycaster_engine (
     // =========================================================================
     function automatic [3:0] shade_dark(input logic [3:0] c);
         case (c)
-            4'h0: shade_dark = 4'h8; // Sky        -> Water
+            4'h0: shade_dark = 4'h0; // Sky        -> Water
             4'h1: shade_dark = 4'h1; // Stone      -> Dirt
-            4'h2: shade_dark = 4'h5; // Grass      -> Leaves
+            4'h2: shade_dark = 4'h2; // Grass      -> Leaves
             4'h3: shade_dark = 4'hD; // Dirt       -> Netherrack
             4'h4: shade_dark = 4'h3; // Planks     -> Dirt
             4'h5: shade_dark = 4'h5; // Leaves     -> Leaves
@@ -124,7 +124,7 @@ module raycaster_engine (
             4'hB: shade_dark = 4'hB; // Lapis      -> Lapis
             4'hC: shade_dark = 4'hC; // Obsidian   -> Obsidian
             4'hD: shade_dark = 4'hD; // Netherrack -> Netherrack
-            4'hE: shade_dark = 4'h1; // Quartz     -> Stone
+            4'hE: shade_dark = 4'hA; // Quartz     -> Stone
             4'hF: shade_dark = 4'h6; // Error      -> Bricks
             default: shade_dark = 4'h0;
         endcase
