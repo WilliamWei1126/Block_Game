@@ -161,19 +161,19 @@ hdmi_text_controller_v1_0_AXI # (
                 4'h0: {red, green, blue} = 12'h8CE; // 0: Sky (Light Blue)
                 4'h1: {red, green, blue} = 12'h777; // 1: Stone (Gray)
                 4'h2: {red, green, blue} = 12'h2A2; // 2: Grass (Green)
-                4'h3: {red, green, blue} = 12'h642; // 3: Dirt
-                4'h4: {red, green, blue} = 12'hDC8; // 4: Sand
-                4'h5: {red, green, blue} = 12'h151; // 5: Leaves
-                4'h6: {red, green, blue} = 12'hB33; // 6: Bricks
-                4'h7: {red, green, blue} = 12'h9EE; // 7: Glass
-                4'h8: {red, green, blue} = 12'h35C; // 8: Water
-                4'h9: {red, green, blue} = 12'h421; // 9: Dirt (dark)
-                4'hA: {red, green, blue} = 12'hA96; // A: Sand (dark)
-                4'hB: {red, green, blue} = 12'h030; // B: Leaves (dark)
-                4'hC: {red, green, blue} = 12'h711; // C: Bricks (dark)
-                4'hD: {red, green, blue} = 12'h6BB; // D: Glass (dark)
-                4'hE: {red, green, blue} = 12'h13A; // E: Water (dark)
-                4'hF: {red, green, blue} = 12'hF0F; // F: Error/Highlight
+                4'h3: {red, green, blue} = 12'h642; // 3: Dirt (Brown)
+                4'h4: {red, green, blue} = 12'h863; // 4: Wood Planks (Light Brown)
+                4'h5: {red, green, blue} = 12'h151; // 5: Leaves (Dark Green)
+                4'h6: {red, green, blue} = 12'hB33; // 6: Bricks (Red)
+                4'h7: {red, green, blue} = 12'h9EE; // 7: Glass (Cyan)
+                4'h8: {red, green, blue} = 12'h35C; // 8: Water (Translucent Blue)
+                4'h9: {red, green, blue} = 12'hDC8; // 9: Sand (Yellowish)
+                4'hA: {red, green, blue} = 12'hFD0; // A: Gold Block (Bright Yellow)
+                4'hB: {red, green, blue} = 12'h13B; // B: Lapis/Blue (Deep Blue)
+                4'hC: {red, green, blue} = 12'h102; // C: Obsidian (Dark Purple/Black)
+                4'hD: {red, green, blue} = 12'h511; // D: Netherrack (Dark Red)
+                4'hE: {red, green, blue} = 12'hEEE; // E: Quartz (White)
+                4'hF: {red, green, blue} = 12'hF0F; // F: Error/Highlight (Magenta)
             endcase
         end
     end

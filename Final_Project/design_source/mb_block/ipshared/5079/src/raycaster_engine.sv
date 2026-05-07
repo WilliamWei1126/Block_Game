@@ -110,22 +110,22 @@ module raycaster_engine (
     // =========================================================================
     function automatic [3:0] shade_dark(input logic [3:0] c);
         case (c)
-            4'h0: shade_dark = 4'h0; // Sky        -> Sky
-            4'h1: shade_dark = 4'h1; // Stone      -> Stone
-            4'h2: shade_dark = 4'h2; // Grass      -> Grass
-            4'h3: shade_dark = 4'h9; // Dirt       -> Dirt (dark)
-            4'h4: shade_dark = 4'hA; // Planks     -> Planks (dark)
-            4'h5: shade_dark = 4'hB; // Leaves     -> Leaves (dark)
-            4'h6: shade_dark = 4'hC; // Bricks     -> Bricks (dark)
-            4'h7: shade_dark = 4'hD; // Glass      -> Glass (dark)
-            4'h8: shade_dark = 4'hE; // Water      -> Water (dark)
-            4'h9: shade_dark = 4'h9; // Dirt dark  -> self
-            4'hA: shade_dark = 4'hA; // Planks dark-> self
-            4'hB: shade_dark = 4'hB; // Leaves dark-> self
-            4'hC: shade_dark = 4'hC; // Bricks dark-> self
-            4'hD: shade_dark = 4'hD; // Glass dark -> self
-            4'hE: shade_dark = 4'hE; // Water dark -> self
-            4'hF: shade_dark = 4'hF; // Error      -> self
+            4'h0: shade_dark = 4'h0; // Sky        -> Water
+            4'h1: shade_dark = 4'h1; // Stone      -> Dirt
+            4'h2: shade_dark = 4'h2; // Grass      -> Leaves
+            4'h3: shade_dark = 4'hD; // Dirt       -> Netherrack
+            4'h4: shade_dark = 4'h3; // Planks     -> Dirt
+            4'h5: shade_dark = 4'h5; // Leaves     -> Leaves
+            4'h6: shade_dark = 4'hD; // Bricks     -> Netherrack
+            4'h7: shade_dark = 4'h8; // Glass      -> Water
+            4'h8: shade_dark = 4'hB; // Water      -> Lapis
+            4'h9: shade_dark = 4'h3; // Sand       -> Dirt
+            4'hA: shade_dark = 4'h9; // Gold       -> Sand
+            4'hB: shade_dark = 4'hB; // Lapis      -> Lapis
+            4'hC: shade_dark = 4'hC; // Obsidian   -> Obsidian
+            4'hD: shade_dark = 4'hD; // Netherrack -> Netherrack
+            4'hE: shade_dark = 4'hA; // Quartz     -> Stone
+            4'hF: shade_dark = 4'h6; // Error      -> Bricks
             default: shade_dark = 4'h0;
         endcase
     endfunction
