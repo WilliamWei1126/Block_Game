@@ -330,7 +330,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>9f179b38</spirit:value>
+            <spirit:value>6e627614</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -358,7 +358,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>9f179b38</spirit:value>
+            <spirit:value>6e627614</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -385,7 +385,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>ac87ddd2</spirit:value>
+            <spirit:value>a02cdf81</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -414,7 +414,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>f18a07ca</spirit:value>
+            <spirit:value>a5f37fa3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -903,27 +903,8 @@
       <spirit:file>
         <spirit:name>src/hdmi_text_controller_v1_0.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_1535cc2a</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>tmp_edit_project.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>tmp_edit_project.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>tmp_edit_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>tmp_edit_project.srcs/sources_1/ip/div_gen_0/div_gen_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>tmp_edit_project.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1013,26 +994,6 @@
         <spirit:fileType>systemVerilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
-      <spirit:file>
-        <spirit:name>tmp_edit_project.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>tmp_edit_project.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>tmp_edit_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>tmp_edit_project.srcs/sources_1/ip/div_gen_0/div_gen_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>tmp_edit_project.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_clk_wiz_6_0__ref_view_fileset</spirit:name>
@@ -1080,10 +1041,6 @@
         <spirit:name>src/clk_wiz_0/clk_wiz_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>tmp_edit_project.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1142,13 +1099,6 @@
         <spirit:name>src/hdmi_text_controller_v1_0_tb.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-        <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>tmp_edit_project.srcs/sim_1/imports/design_source_ip/hdmi_text_controller_v1_0_tb.sv</spirit:name>
-        <spirit:fileType>systemVerilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
         <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
@@ -1219,17 +1169,17 @@
         <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>48</xilinx:coreRevision>
+      <xilinx:coreRevision>61</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>xilinx.com:user:hdmi_text_controller_v1_0:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2026-05-05T01:21:56Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2026-05-07T00:19:40Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2022.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="4bb973a4"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="f16a1c25"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="22676e93"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="6d984f42"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="92a9ea58"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="a7b3710f"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="5a61ad10"/>

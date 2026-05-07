@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x59D48D6F05ADD50E",
+      "boundary_crc": "0x59D48D6F48BB73B6",
       "device": "xc7s50csga324-1",
       "name": "mb_block",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",

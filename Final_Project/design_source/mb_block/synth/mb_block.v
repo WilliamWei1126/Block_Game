@@ -1,8 +1,8 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Mon May  4 20:22:08 2026
-//Host        : Will-PC-9600X running 64-bit major release  (build 9200)
+//Date        : Wed May  6 19:20:01 2026
+//Host        : Nakano_Miku running 64-bit major release  (build 9200)
 //Command     : generate_target mb_block.bd
 //Design      : mb_block
 //Purpose     : IP block netlist
@@ -1666,10 +1666,10 @@ module mb_block
         .M07_ARESETN(rst_clk_wiz_1_100M_peripheral_aresetn),
         .M07_AXI_arready(1'b0),
         .M07_AXI_awready(1'b0),
-        .M07_AXI_bresp({1'b0,1'b0}),
+        .M07_AXI_bresp(1'b0),
         .M07_AXI_bvalid(1'b0),
-        .M07_AXI_rdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .M07_AXI_rresp({1'b0,1'b0}),
+        .M07_AXI_rdata(1'b0),
+        .M07_AXI_rresp(1'b0),
         .M07_AXI_rvalid(1'b0),
         .M07_AXI_wready(1'b0),
         .S00_ACLK(microblaze_0_Clk),
@@ -2104,24 +2104,24 @@ module mb_block_microblaze_0_axi_periph_0
   output M06_AXI_wvalid;
   input M07_ACLK;
   input M07_ARESETN;
-  output [31:0]M07_AXI_araddr;
-  output [2:0]M07_AXI_arprot;
+  output M07_AXI_araddr;
+  output M07_AXI_arprot;
   input M07_AXI_arready;
   output M07_AXI_arvalid;
-  output [31:0]M07_AXI_awaddr;
-  output [2:0]M07_AXI_awprot;
+  output M07_AXI_awaddr;
+  output M07_AXI_awprot;
   input M07_AXI_awready;
   output M07_AXI_awvalid;
   output M07_AXI_bready;
-  input [1:0]M07_AXI_bresp;
+  input M07_AXI_bresp;
   input M07_AXI_bvalid;
-  input [31:0]M07_AXI_rdata;
+  input M07_AXI_rdata;
   output M07_AXI_rready;
-  input [1:0]M07_AXI_rresp;
+  input M07_AXI_rresp;
   input M07_AXI_rvalid;
-  output [31:0]M07_AXI_wdata;
+  output M07_AXI_wdata;
   input M07_AXI_wready;
-  output [3:0]M07_AXI_wstrb;
+  output M07_AXI_wstrb;
   output M07_AXI_wvalid;
   input S00_ACLK;
   input S00_ARESETN;
@@ -2275,11 +2275,11 @@ module mb_block_microblaze_0_axi_periph_0
   wire m07_couplers_to_microblaze_0_axi_periph_AWREADY;
   wire m07_couplers_to_microblaze_0_axi_periph_AWVALID;
   wire m07_couplers_to_microblaze_0_axi_periph_BREADY;
-  wire [1:0]m07_couplers_to_microblaze_0_axi_periph_BRESP;
+  wire m07_couplers_to_microblaze_0_axi_periph_BRESP;
   wire m07_couplers_to_microblaze_0_axi_periph_BVALID;
-  wire [31:0]m07_couplers_to_microblaze_0_axi_periph_RDATA;
+  wire m07_couplers_to_microblaze_0_axi_periph_RDATA;
   wire m07_couplers_to_microblaze_0_axi_periph_RREADY;
-  wire [1:0]m07_couplers_to_microblaze_0_axi_periph_RRESP;
+  wire m07_couplers_to_microblaze_0_axi_periph_RRESP;
   wire m07_couplers_to_microblaze_0_axi_periph_RVALID;
   wire m07_couplers_to_microblaze_0_axi_periph_WDATA;
   wire m07_couplers_to_microblaze_0_axi_periph_WREADY;
@@ -2533,16 +2533,16 @@ module mb_block_microblaze_0_axi_periph_0
   assign M06_AXI_wdata[31:0] = m06_couplers_to_microblaze_0_axi_periph_WDATA;
   assign M06_AXI_wstrb[3:0] = m06_couplers_to_microblaze_0_axi_periph_WSTRB;
   assign M06_AXI_wvalid = m06_couplers_to_microblaze_0_axi_periph_WVALID;
-  assign M07_AXI_araddr[0] = m07_couplers_to_microblaze_0_axi_periph_ARADDR;
-  assign M07_AXI_arprot[0] = m07_couplers_to_microblaze_0_axi_periph_ARPROT;
+  assign M07_AXI_araddr = m07_couplers_to_microblaze_0_axi_periph_ARADDR;
+  assign M07_AXI_arprot = m07_couplers_to_microblaze_0_axi_periph_ARPROT;
   assign M07_AXI_arvalid = m07_couplers_to_microblaze_0_axi_periph_ARVALID;
-  assign M07_AXI_awaddr[0] = m07_couplers_to_microblaze_0_axi_periph_AWADDR;
-  assign M07_AXI_awprot[0] = m07_couplers_to_microblaze_0_axi_periph_AWPROT;
+  assign M07_AXI_awaddr = m07_couplers_to_microblaze_0_axi_periph_AWADDR;
+  assign M07_AXI_awprot = m07_couplers_to_microblaze_0_axi_periph_AWPROT;
   assign M07_AXI_awvalid = m07_couplers_to_microblaze_0_axi_periph_AWVALID;
   assign M07_AXI_bready = m07_couplers_to_microblaze_0_axi_periph_BREADY;
   assign M07_AXI_rready = m07_couplers_to_microblaze_0_axi_periph_RREADY;
-  assign M07_AXI_wdata[0] = m07_couplers_to_microblaze_0_axi_periph_WDATA;
-  assign M07_AXI_wstrb[0] = m07_couplers_to_microblaze_0_axi_periph_WSTRB;
+  assign M07_AXI_wdata = m07_couplers_to_microblaze_0_axi_periph_WDATA;
+  assign M07_AXI_wstrb = m07_couplers_to_microblaze_0_axi_periph_WSTRB;
   assign M07_AXI_wvalid = m07_couplers_to_microblaze_0_axi_periph_WVALID;
   assign S00_AXI_arready[0] = microblaze_0_axi_periph_to_s00_couplers_ARREADY;
   assign S00_AXI_awready[0] = microblaze_0_axi_periph_to_s00_couplers_AWREADY;
@@ -2610,10 +2610,10 @@ module mb_block_microblaze_0_axi_periph_0
   assign m06_couplers_to_microblaze_0_axi_periph_WREADY = M06_AXI_wready;
   assign m07_couplers_to_microblaze_0_axi_periph_ARREADY = M07_AXI_arready;
   assign m07_couplers_to_microblaze_0_axi_periph_AWREADY = M07_AXI_awready;
-  assign m07_couplers_to_microblaze_0_axi_periph_BRESP = M07_AXI_bresp[1:0];
+  assign m07_couplers_to_microblaze_0_axi_periph_BRESP = M07_AXI_bresp;
   assign m07_couplers_to_microblaze_0_axi_periph_BVALID = M07_AXI_bvalid;
-  assign m07_couplers_to_microblaze_0_axi_periph_RDATA = M07_AXI_rdata[31:0];
-  assign m07_couplers_to_microblaze_0_axi_periph_RRESP = M07_AXI_rresp[1:0];
+  assign m07_couplers_to_microblaze_0_axi_periph_RDATA = M07_AXI_rdata;
+  assign m07_couplers_to_microblaze_0_axi_periph_RRESP = M07_AXI_rresp;
   assign m07_couplers_to_microblaze_0_axi_periph_RVALID = M07_AXI_rvalid;
   assign m07_couplers_to_microblaze_0_axi_periph_WREADY = M07_AXI_wready;
   assign microblaze_0_axi_periph_ACLK_net = ACLK;
@@ -2918,11 +2918,11 @@ module mb_block_microblaze_0_axi_periph_0
         .M_AXI_awready(m07_couplers_to_microblaze_0_axi_periph_AWREADY),
         .M_AXI_awvalid(m07_couplers_to_microblaze_0_axi_periph_AWVALID),
         .M_AXI_bready(m07_couplers_to_microblaze_0_axi_periph_BREADY),
-        .M_AXI_bresp(m07_couplers_to_microblaze_0_axi_periph_BRESP[0]),
+        .M_AXI_bresp(m07_couplers_to_microblaze_0_axi_periph_BRESP),
         .M_AXI_bvalid(m07_couplers_to_microblaze_0_axi_periph_BVALID),
-        .M_AXI_rdata(m07_couplers_to_microblaze_0_axi_periph_RDATA[0]),
+        .M_AXI_rdata(m07_couplers_to_microblaze_0_axi_periph_RDATA),
         .M_AXI_rready(m07_couplers_to_microblaze_0_axi_periph_RREADY),
-        .M_AXI_rresp(m07_couplers_to_microblaze_0_axi_periph_RRESP[0]),
+        .M_AXI_rresp(m07_couplers_to_microblaze_0_axi_periph_RRESP),
         .M_AXI_rvalid(m07_couplers_to_microblaze_0_axi_periph_RVALID),
         .M_AXI_wdata(m07_couplers_to_microblaze_0_axi_periph_WDATA),
         .M_AXI_wready(m07_couplers_to_microblaze_0_axi_periph_WREADY),
