@@ -330,7 +330,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>aa74d31f</spirit:value>
+            <spirit:value>87c8d6dc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -358,7 +358,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>aa74d31f</spirit:value>
+            <spirit:value>87c8d6dc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -884,7 +884,7 @@
         <spirit:name>src/blk_mem_gen_1/blk_mem_gen_1.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_vram</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_vram/blk_mem_gen_1</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/VGA_controller.sv</spirit:name>
@@ -994,7 +994,7 @@
         <spirit:name>src/blk_mem_gen_1/blk_mem_gen_1.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_vram</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_vram/blk_mem_gen_1</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/VGA_controller.sv</spirit:name>
@@ -1223,17 +1223,17 @@
         <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>65</xilinx:coreRevision>
+      <xilinx:coreRevision>66</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>xilinx.com:user:hdmi_text_controller_v1_0:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2026-05-07T03:47:36Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2026-05-08T01:29:54Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2022.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="4bb973a4"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="f16a1c25"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="52ef6d3d"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="bd175502"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="92a9ea58"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="a7b3710f"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="5a61ad10"/>

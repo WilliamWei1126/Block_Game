@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "blk_mem_gen_1",
-    "cell_name": "vram",
+    "cell_name": "vram/blk_mem_gen_1",
     "component_reference": "xilinx.com:ip:blk_mem_gen:8.4",
     "ip_revision": "5",
     "gen_directory": ".",
