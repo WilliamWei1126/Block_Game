@@ -18,9 +18,8 @@ const char* const devclasses[] = {" Uninitialized", " HID Keyboard", " HID Mouse
 #define BLOCK(color, height)  (((height) & 0x7) << 4 | ((color) & 0xF))
 static const int dir_x[4] = {1,  0, -1,  0};
 static const int dir_y[4] = {0,  1,  0, -1};
-static const BYTE place_keys[NUM_PLACE_KEYS] = {30, 31, 32, 33, 34, 35, 20};
-static const uint8_t place_types[NUM_PLACE_KEYS] = {0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0xF};
-static int prev_place[NUM_PLACE_KEYS] = {0};
+static const BYTE place_keys[] = {30, 31, 32, 33, 34, 35, 20};
+static const uint8_t place_types[] = {0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0xF};
 
 
 BYTE GetDriverandReport() {
@@ -60,7 +59,7 @@ BYTE GetDriverandReport() {
 
 //This function is written by AI (Claude) mainly the plane_x and plane_y value.
 int facing = 1;
-static void update_camera(int facing){
+static void update_camera(){
     switch (facing & 3) {
         case 0:
             hdmi_ctrl->camera_dir_x   = 0x00010000;
@@ -173,7 +172,6 @@ int main() {
     init_platform();
 
    	BYTE rcode;
-	BOOT_MOUSE_REPORT buf;		//USB mouse report
 	BOOT_KBD_REPORT kbdbuf;
 
 	BYTE runningdebugflag = 0;//flag to dump out a bunch of information when we first get to USB_STATE_RUNNING
