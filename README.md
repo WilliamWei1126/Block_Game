@@ -6,7 +6,7 @@ hardware **raycasting engine** written in SystemVerilog, driven by a MicroBlaze 
 processor running C that reads a USB keyboard and updates the game state.
 
 > ECE 385 (Digital Systems Laboratory) — Spring 2026 Final Project
-> William Wei ([@WilliamWei1126](https://github.com/WilliamWei1126)) & Eason Lin
+> William Wei ([@WilliamWei1126](https://github.com/WilliamWei1126)) & Eason Lin ([@acsondl](https://github.com/acsondl))
 
 ---
 
