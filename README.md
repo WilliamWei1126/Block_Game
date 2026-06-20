@@ -12,6 +12,8 @@ processor running C that reads a USB keyboard and updates the game state.
 
 ## Demo
 
+**A live demo is in the ECE 385 Final Project Showcase at [1:51:37](https://www.youtube.com/watch?v=iHTvJDg6JQU&t=6697s).**
+
 | | |
 |---|---|
 | **Movement** | `W` `A` `S` `D` to walk, `←` / `→` arrow keys to turn |
